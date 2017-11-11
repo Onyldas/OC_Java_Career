@@ -3,47 +3,56 @@ package com.openclassrooms.robot;
 public class Delivery_Robot extends Robot
 {
 	//Instance Attributes
-	protected String destination;
 	protected String to_carry;
+	protected int materials;
 	
 	
 	//Constructors
-		public Delivery_Robot()
-		{
-			super();
-		}
-		public Delivery_Robot(String name, String _destination, String _to_carry)
+		public Delivery_Robot(String name)
 		{
 			super(name);
-			this.destination = _destination;
+		}
+		public Delivery_Robot(String name, String _to_carry, int _materials)
+		{
+			super(name);
 			this.to_carry = _to_carry;
+			this.materials = _materials;
 		}
 		
 		
 	//Getters
-		public String GetDestination()
-		{
-			return this.destination;
-		}
-		
-		public String GetTo_carry()
+
+		public String getTo_carry()
 		{
 			return this.to_carry;
 		}
-	
-	//Setters 
-		public void SetDestination (String dest)
+		public int getMaterials()
 		{
-			this.destination = dest;
+			return this.materials;
 		}
+		
+	//Setters 
 	
-		public void SetTo_carry (String carry)
+		public void setTo_carry (String carry)
 		{
 			this.to_carry = carry;
 		}
-	
+		public void setMaterials (int mat)
+		{
+			this.materials = mat;
+		}
 	
 	//Methods
-	
-	
+		public void deliver(int nb)
+		{
+			if ((this.materials - nb) > 0)
+			{
+				System.out.println("The robot " + this.name + "has deliver " + nb + " " + this.to_carry + " here.");
+				this.materials -= nb;
+			}
+			else
+			{
+				System.out.println("Not enough materials. (" + this.materials + ")" );
+			}
+		}
 }

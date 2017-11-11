@@ -3,44 +3,62 @@ package com.openclassrooms.robot;
 public class Build_Robot extends Robot
 {
 	//Instance Attributes
-		protected String to_build;
-		protected int materials;
+		protected int pieces;
+		protected int nbClone;
 			
 	//Constructors
-		public Build_Robot()
-		{
-			super();
-		}
-		public Build_Robot(String name, String _to_build, int _materials)
+		public Build_Robot(String name)
 		{
 			super(name);
-			this.to_build = _to_build;
-			this.materials= _materials;
+			this.nbClone = 0;
+			this.pieces = 3;
+		}
+		public Build_Robot(String name, int _pieces)
+		{
+			super(name);
+			this.pieces= _pieces;
+			this.nbClone = 0;
 		}
 		
 		
 	//Getters	
-		public String GetTo_build()
+		public int getPieces()
 		{
-			return this.to_build;
-		}
-		
-		public int GetMaterials()
-		{
-			return this.materials;
+			return this.pieces;
 		}
 		
 	//Setters 
-		public void SetTo_build (String build)
+		public void setPieces(int piece)
 		{
-			this.to_build = build;
-		}
-		
-		public void SetMaterials(int mat)
-		{
-			this.materials = mat;
+			this.pieces = piece;
 		}
 		
 		
 	//Methods
+		public void buildRobot()
+		{
+			if (this.pieces > 0)
+			{
+				pieces -= 1;
+				Robot rob = new Build_Robot(this.name+this.nbClone);
+				System.out.println("A new robot has been built !\n  " );
+				rob.presentation();
+			}
+			else
+			{
+				System.out.println("The robot don't have enough pieces.");
+			}
+		}
+		public void ReplenishPieces()
+		{
+			if (this.isHome())
+			{
+				this.pieces = 3;
+				System.out.println(this.name + "has now 3 pieces.");
+			}
+			else
+			{
+				System.out.println("You have to go home first !");
+			}
+		}
 }

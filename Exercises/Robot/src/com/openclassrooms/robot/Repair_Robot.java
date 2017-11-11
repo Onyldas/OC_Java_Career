@@ -3,33 +3,42 @@ package com.openclassrooms.robot;
 public class Repair_Robot extends Robot
 {
 	//Instance Attributes
-		protected String to_repair;
 		
 		
 	//Constructors
 		public Repair_Robot()
 		{
-			super();
+			
 		}
-		public Repair_Robot(String name, String _to_repair)
+		public Repair_Robot(String name)
 		{
 			super(name);
-			this.to_repair = _to_repair;
 		}
 		
 		
 	//Getters	
-		public String GetTo_repair()
-		{
-			return this.to_repair;
-		}
+
 		
 	//Setters 
-		public void SetTo_repair (String repair)
-		{
-			this.to_repair = repair;
-		}
-		
+
 		
 	//Methods
+		public void repair(Robot rob)
+		{
+			boolean isNext = false;// test if the repairing robot is next to the robot to repair
+			if ((Math.abs(this.X+1) == rob.X && this.Y == rob.Y) || (Math.abs(this.Y+1) == rob.Y && this.X == rob.X))
+			{
+				isNext = true;
+			}
+			
+			if (isNext)
+			{
+				rob.setLP(100);
+				System.out.println("The robot " + rob.getName() + " was repair by " + this.name +".");
+			}
+			else
+			{
+				System.out.println("The repairing Robot must be next to the robot to repair.");
+			}
+		}
 }
