@@ -26,7 +26,7 @@ public class Repair_Robot extends Robot
 		public void repair(Robot rob)
 		{
 			boolean isNext = false;// test if the repairing robot is next to the robot to repair
-			if ((Math.abs(this.X+1) == rob.X && this.Y == rob.Y) || (Math.abs(this.Y+1) == rob.Y && this.X == rob.X))
+			if ((Math.abs(this.X-1) == rob.X && this.Y == rob.Y) || (Math.abs(this.Y-1) == rob.Y && this.X == rob.X))
 			{
 				isNext = true;
 			}

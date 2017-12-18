@@ -8,7 +8,7 @@ abstract class Robot
 		protected double speed;
 		protected int X; //axis X
 		protected int Y; //axis Y
-		
+	
 		
 	//Constructors 
 		public Robot()
@@ -86,7 +86,7 @@ abstract class Robot
 		{
 			this.X = newX;
 			this.Y = newY;
-			System.out.println("Le robot " + this.name + " se situe maintenant aux coordonnées (" + newX + ";" + newY +";");
+			System.out.println("Le robot " + this.name + " se situe maintenant aux coordonnées (" + newX + ";" + newY +")");
 		}
 		public boolean isHome()
 		{

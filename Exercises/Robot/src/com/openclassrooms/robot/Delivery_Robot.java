@@ -47,12 +47,16 @@ public class Delivery_Robot extends Robot
 		{
 			if ((this.materials - nb) > 0)
 			{
-				System.out.println("The robot " + this.name + "has deliver " + nb + " " + this.to_carry + " here.");
+				System.out.println("The robot " + this.name + " has deliver " + nb + " " + this.to_carry + " here.");
 				this.materials -= nb;
 			}
 			else
 			{
 				System.out.println("Not enough materials. (" + this.materials + ")" );
 			}
+		}
+		public void replenishMaterials()
+		{
+			this.setMaterials(20);
 		}
 }
